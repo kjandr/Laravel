@@ -2,11 +2,18 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\ConfigController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+//
+// Öffentliche Routen
+//
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth:sanctum');
+Route::get('/admin/users', [AuthController::class, 'listUsers'])
+        ->middleware('auth:sanctum', 'role:admin');
+
 
 // ✅ Config-Routen nur für Admins
 Route::prefix('v2/config')

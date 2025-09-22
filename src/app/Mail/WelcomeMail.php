@@ -31,12 +31,6 @@ class WelcomeMail extends Mailable
         );
     }
 
-        public function build()
-    {
-        return $this->subject('Willkommen bei unserer App 🎉')
-                    ->view('emails.welcome');
-    }
-
     /**
      * Get the message content definition.
      */

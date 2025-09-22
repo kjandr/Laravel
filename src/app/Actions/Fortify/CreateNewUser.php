@@ -32,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'role' => 'anwender', // oder dein Standard
+            'role' => null, // oder dein Standard
         ]);
 
         Mail::to($user->email)->send(new WelcomeMail($user));

@@ -1,0 +1,35 @@
+# Laravel / PHP
+/vendor/
+/.env
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+# Laravel storage (nur Cache/Logs, aber KEINE migrations!)
+/src/storage/*.key
+/src/storage/app/public
+/src/storage/framework/*
+!/src/storage/framework/.gitignore
+/src/storage/logs/*
+!/src/storage/logs/.gitignore
+
+# Node / Frontend
+/node_modules/
+/src/node_modules/
+/src/public/hot
+/src/public/storage
+/src/public/mix-manifest.json
+
+# IDE / Editor
+/.idea
+/.vscode
+*.swp
+*.swo
+*~
+
+# Docker / System
+*.pid
+*.seed
+*.bak
+.DS_Store

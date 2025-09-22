@@ -90,3 +90,11 @@ php artisan make:middleware Role
 ### WelcomeMail aktivieren
 docker exec -it laravel_app bash
 php artisan make:mail WelcomeMail
+
+
+docker exec -it laravel_db mysql -u laravel -psecret laravel
+SELECT id, name, email, role FROM users;
+UPDATE users SET role = 'admin' WHERE id = 1;
+SELECT id, name, email, role FROM users WHERE id = 1;
+
+docker exec -it laravel_app php artisan migrate

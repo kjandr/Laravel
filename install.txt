@@ -1,0 +1,57 @@
+apt-get update && apt-get upgrade -y && apt autoremove -y
+cat ~/.ssh/authorized_keys
+
+sudo nano /etc/ssh/sshd_config
+PasswordAuthentication no → Kein Passwort-Login mehr erlaubt
+PermitRootLogin prohibit-password → Root darf nur mit Schlüssel, nicht mit Passwort rein
+
+sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
+sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config
+
+C:\Users\kjandrijevic\.ssh   known_hosts
+
+
+apt-get install curl -y
+curl -sSL https://get.docker.com | sh
+apt install docker-compose -y
+
+-- npm starten
+docker compose -f npm/docker-compose.yml up -d --build
+docker network create proxy
+
+docker compose -f laravel/docker-compose.yml up -d --build
+
+docker exec -it laravel_app bash
+composer create-project laravel/laravel .
+nano .env
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=laravel
+DB_PASSWORD=secret 
+
+php artisan key:generate
+  - oder : docker exec -it laravel_app php artisan key:generate
+
+
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
+touch /var/www/database/database.sqlite
+chown www-data:www-data /var/www/database/database.sqlite
+chmod 664 /var/www/database/database.sqlite
+  
+exit
+docker compose -f laravel/docker-compose.yml down
+docker compose -f laravel/docker-compose.yml up -d --build
+
+docker exec -it laravel_node bash
+npm install -g npm@11.6.0
+npm run
+
+
+exit
+docker exec -it laravel_app php artisan migrate
+
+http://localhost:8000/

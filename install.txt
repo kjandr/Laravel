@@ -85,3 +85,8 @@ docker exec -it laravel_app bash
 php artisan migrate
 
 php artisan make:middleware Role
+
+
+### WelcomeMail aktivieren
+docker exec -it laravel_app bash
+php artisan make:mail WelcomeMail

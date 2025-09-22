@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -44,5 +45,29 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Rollen-Prüfung: hat der User genau diese Rolle?
+     */
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
+
+    /**
+     * Rollen-Prüfung: hat der User eine Rolle aus der Liste?
+     */
+    public function hasAnyRole(array $roles): bool
+    {
+        return in_array($this->role, $roles, true);
+    }
+
+    /**
+     * Hilfs-Methode für Admin-Check.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }

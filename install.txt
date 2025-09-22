@@ -55,3 +55,19 @@ exit
 docker exec -it laravel_app php artisan migrate
 
 http://localhost:8000/
+
+
+### jetstream installieren
+docker exec -it laravel_app bash
+composer require laravel/jetstream
+docker exec -it laravel_node bash
+npm install -g npm@11.6.0
+npm run
+docker exec -it laravel_app php artisan migrate
+
+
+### DB mite role erweitern
+php artisan make:migration add_role_to_users_table --table=users
+  - [database/migrations/2025_09_22_171004_add_role_to_users_table.php]
+php artisan migrate
+

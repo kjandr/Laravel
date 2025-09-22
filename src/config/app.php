@@ -123,4 +123,14 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'decrypt_keys' => array_map(
+        fn ($v) => hexdec($v),
+        explode(',', env('DECRYPT_KEYS', ''))
+    ),
+
+    'encrypted_keys' => array_map(
+        fn ($v) => hexdec($v),
+        explode(',', env('ENCRYPTED_KEYS', ''))
+    ),
+
 ];

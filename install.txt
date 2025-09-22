@@ -71,3 +71,16 @@ php artisan make:migration add_role_to_users_table --table=users
   - [database/migrations/2025_09_22_171004_add_role_to_users_table.php]
 php artisan migrate
 
+### livewire installieren
+php artisan jetstream:install livewire
+npm install -D postcss autoprefixer
+npm install -D tailwindcss postcss autoprefixer
+exit
+docker exec -it laravel_node bash
+npm install -g npm@11.6.0
+npm run
+npm run build
+exit
+docker exec -it laravel_app bash
+php artisan migrate
+

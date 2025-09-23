@@ -35,6 +35,7 @@ class CreateNewUser implements CreatesNewUsers
             'role' => null, // oder dein Standard
         ]);
 
-        Mail::to($user->email)->send(new WelcomeMail($user));
+        //Mail::to($user->email)->send(new WelcomeMail($user));
+        return $user;
     }
 }

@@ -50,4 +50,14 @@ class WelcomeMail extends Mailable
     {
         return [];
     }
+
+        /**
+     * Build the message.
+     */
+    public function build()
+    {
+        return $this->subject('Willkommen bei unserer App')
+                    ->view('emails.welcome')
+                    ->with(['user' => $this->user]);
+    }
 }

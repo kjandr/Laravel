@@ -50,7 +50,7 @@
             @endif
         </header>
         <main class="flex items-center justify-center" style="min-height: calc(100vh - 120px);">
-            <img src="{{ asset('images/EXFORCE_Logo_weiss.svg') }}" alt="Mein Logo" class="h-48">
+            <img src="{{ asset('images/EXFORCE_Logo_weiss.svg') }}" alt="Mein Logo" class="h-12">
         </main>
 
         
